@@ -14,9 +14,9 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-md navbar-dark bg-info navbar-laravel">
         <div class="container">
-            <a class="navbar-brand">
+            <a class="navbar-brand text-white">
                 {{ config('app.name', 'Laravel AmiGridView') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -27,6 +27,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link {{ url()->current() === route('post.index') ? 'active' : '' }}"
                            href="{{ route('post.index') }}">Page 1 - Simple Paginate</a>
@@ -36,48 +40,33 @@
                            href="{{ route('post.index2') }}">Page 2 - Paginate</a>
                     </li>
                 </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
             </div>
         </div>
     </nav>
 </div>
-<main class="py-4">
-
+<main class="py-0 pb-5">
+    <div class="jumbotron">
+        <div class="container" style="margin-top: 50px;">
+            <h1>Laravel Ami Grid View Table</h1>
+            <p>
+                Simple, customizable, axios, vuejs, ready bootstrap styled mini grid view for the laravel framework. For laravel 5.6 and
+                above.
+            </p>
+            <p>
+                <a class="btn btn-info btn-lg" href="https://github.com/assurrussa/grid-view-table">
+                    View on Github <i class="fa fa-github"></i>
+                </a>
+                <a class="btn btn-outline-info btn-lg float-right" href="https://github.com/assurrussa/grid-view-table-app">
+                    View on Github DEMO APP <i class="fa fa-github"></i>
+                </a>
+            </p>
+        </div>
+    </div>
     @yield('content')
 
 </main>
 
+<div class="py-5"></div>
 
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/amigrid.js') }}"></script>
