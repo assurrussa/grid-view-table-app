@@ -185,7 +185,7 @@ class PostController extends Controller
         // columns
         $gridView->column('id', '#')->setSort(true)->setFilterString('byId', '', '', 'width:60px');
         $gridView->column()->setCheckbox();
-        $gridView->column('title', 'title')->setFilterString('byTitle')->setSort(true);
+        $gridView->column('title', 'title')->setFilterString('byTitle', '', '', 'width:60px')->setSort(true);
         $gridView->column('preview', 'preview')->setScreening(true)->setHandler(function ($data) {
             /** @var \App\Post $data */
             return '<img src="' . $data->preview . '" alt="' . $data->title . '" widht="60" height="60">';
@@ -216,7 +216,8 @@ class PostController extends Controller
                     /** @var \App\Post $data */
                     return $data->id % 2;
                 });
-            $buttons[] = $gridView->columnAction()->setActionEdit('post.edit', [$data->id], 'Edit')->setMethod('PUT')
+            $buttons[] = $gridView->columnAction()->setActionEdit('post.edit', [$data->id], 'Edit')
+                ->setClass('btn btn-outline-primary btn-sm')
                 ->setOptions(['target' => '_blank'])
                 ->setHandler(function ($data) {
                     /** @var \App\Post $data */
