@@ -31,7 +31,7 @@ class PostController extends Controller
     public function index()
     {
         $title = 'Posts';
-        $data = $this->getGridView();
+        $data = $this->getGrid()->getSimple();
         if (request()->ajax() || request()->wantsJson()) {
             return app(\Assurrussa\GridView\GridView::NAME)->render(compact('data'));
         }
@@ -47,7 +47,7 @@ class PostController extends Controller
     public function index2()
     {
         $title = 'Posts';
-        $data = $this->getGridView2();
+        $data = $this->getGrid()->get();
         if (request()->ajax() || request()->wantsJson()) {
             return app(\Assurrussa\GridView\GridView::NAME)->render(compact('data'));
         }
@@ -120,27 +120,6 @@ class PostController extends Controller
     public function custom(Request $request)
     {
         dd($request->get('deleted'));
-    }
-
-    /**
-     * @return \Assurrussa\GridView\Helpers\GridViewResult|mixed
-     * @throws \Assurrussa\GridView\Exception\ColumnsException
-     * @throws \Assurrussa\GridView\Exception\QueryException
-     */
-    public function getGridView()
-    {
-        return $this->getGrid()->getSimple();
-    }
-
-    /**
-     * @return \Assurrussa\GridView\Helpers\GridViewResult|mixed
-     * @throws \Assurrussa\GridView\Exception\ColumnsException
-     * @throws \Assurrussa\GridView\Exception\QueryException
-     */
-    public function getGridView2()
-    {
-
-        return $this->getGrid()->get();
     }
 
     /**
@@ -243,7 +222,7 @@ class PostController extends Controller
                     /** @var \App\Post $data */
                     return $data->id % 2;
                 });
-            $buttons[] = $gridView->columnAction()->setActionDelete('post.destroy', [$data->id], 'Delete')
+            $buttons[] = $gridView->columnAction()->setActionDelete('post.destroy', [$data->id], '')
                 ->setHandler(function ($data) {
                     /** @var \App\Post $data */
                     return $data->id % 2 && !$data->deleted_at;
