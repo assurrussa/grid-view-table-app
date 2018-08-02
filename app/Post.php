@@ -94,6 +94,17 @@ class Post extends Model
      *
      * @return mixed
      */
+    public function scopeByTitleLike($query, $string)
+    {
+        return $query->where('title','like', $string . '%');
+    }
+
+    /**
+     * @param Post   $query
+     * @param string $string
+     *
+     * @return mixed
+     */
     public function scopeByUserName($query, $string)
     {
         return $query->whereHas('user', function ($query) use ($string) {
