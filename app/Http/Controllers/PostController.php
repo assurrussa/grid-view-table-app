@@ -186,10 +186,10 @@ class PostController extends Controller
         $gridView->column('id', '#')->setSort(true)->setFilterString('byId', '', '', 'width:60px');
         $gridView->column()->setCheckbox();
         $gridView->column('title', 'title')->setFilterString('byTitle')->setSort(true);
-//        $gridView->column('preview', 'preview')->setScreening(true)->setHandler(function ($data) {
-//            /** @var \App\Post $data */
-//            return '<img src="' . $data->preview . '" alt="' . $data->title . '" widht="60" height="60">';
-//        });
+        $gridView->column('preview', 'preview')->setScreening(true)->setHandler(function ($data) {
+            /** @var \App\Post $data */
+            return '<img src="' . $data->preview . '" alt="' . $data->title . '" widht="60" height="60">';
+        });
         $gridView->column('type', 'type')->setFilterSelect('byType', \App\Post::$types)->setSort(false);
         $gridView->column('user.country.name', 'country')->setSort(false)->setScreening(false)
             ->setFilterSelectNotAjax('byCountryId', $listCountry, $listCountrySelected);
