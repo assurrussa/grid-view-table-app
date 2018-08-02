@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/amigrid.js": "/js/amigrid.js",
-    "/js/amigrid-full.js": "/js/amigrid-full.js"
+    "/vendor/grid-view/css/amigrid.css": "/vendor/grid-view/css/amigrid.css",
+    "/vendor/grid-view/js/amigrid-full.js": "/vendor/grid-view/js/amigrid-full.js",
+    "/vendor/grid-view/js/amigrid.js": "/vendor/grid-view/js/amigrid.js"
 }

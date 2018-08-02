@@ -14,6 +14,6 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
-mix.js('packages/assurrussa/grid-view-table/resources/assets/js/app.js', 'public/js/amigrid.js')
-    .js('packages/assurrussa/grid-view-table/resources/assets/js/app-full.js', 'public/js/amigrid-full.js')
-    .sass('packages/assurrussa/grid-view-table/resources/assets/sass/app.scss', 'public/css/amigrid.css');
+mix.js('vendor/assurrussa/grid-view-table/resources/assets/js/app.js', 'public/vendor/grid-view/js/amigrid.js')
+    .js('vendor/assurrussa/grid-view-table/resources/assets/js/app-full.js', 'public/vendor/grid-view/js/amigrid-full.js')
+    .sass('vendor/assurrussa/grid-view-table/resources/assets/sass/app.scss', 'public/vendor/grid-view/css/amigrid.css');
