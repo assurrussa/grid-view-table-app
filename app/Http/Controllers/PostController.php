@@ -119,7 +119,7 @@ class PostController extends Controller
      */
     public function custom(Request $request)
     {
-        dd($request->get('deleted'));
+        dd($request->get('custom'));
     }
 
     /**
@@ -172,14 +172,14 @@ class PostController extends Controller
         // export setting
         $gridView->setExport(true)
             ->setFieldsForExport([
-            'ID'         => 'id',
-            0            => 'title',
-            'Author'     => function ($data) {
-                return $data->user->name;
-            },
-            'Country'    => 'user.country.name',
-            'Created At' => 'created_at',
-        ]);
+                'ID'         => 'id',
+                0            => 'title',
+                'Author'     => function ($data) {
+                    return $data->user->name;
+                },
+                'Country'    => 'user.country.name',
+                'Created At' => 'created_at',
+            ]);
         $gridView->button()->setButtonExport();
 
         // columns
