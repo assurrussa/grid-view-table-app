@@ -9,8 +9,8 @@
 
     <title>Ami Grid View | {{ $title ?? config('app.name', 'Laravel') }}</title>
 
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/vendor/grid-view/css/amigrid.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/grid-view/css/amigrid.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -68,8 +68,8 @@
 
 <div class="py-5"></div>
 
-<script src="/js/app.js"></script>
-<script src="/vendor/grid-view/js/amigrid.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('vendor/grid-view/js/amigrid.js') }}"></script>
 @stack('scripts')
 </body>
 </html>
