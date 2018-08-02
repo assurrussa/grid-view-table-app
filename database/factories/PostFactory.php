@@ -16,10 +16,10 @@ use Faker\Generator as Faker;
 $factory->define(App\Post::class, function (Faker $faker) {
     return [
         'type'         => array_first(array_random(\App\Post::$types, 1)),
-        'title'        => $faker->title,
+        'title'        => $faker->sentence($nbWords = 2, $variableNbWords = true),
         'preview'      => $faker->imageUrl(),
-        'description'  => $faker->word,
-        'body'         => $faker->paragraph,
+        'description'  => $faker->sentence($nbWords = 10, $variableNbWords = true),
+        'body'         => $faker->text($maxNbChars = 600),
         'published_at' => $faker->dateTimeBetween(),
     ];
 });
