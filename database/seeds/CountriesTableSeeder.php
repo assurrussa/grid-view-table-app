@@ -11,10 +11,6 @@ class CountriesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Country::truncate();
-        \App\City::truncate();
-        \App\User::truncate();
-        \App\Post::truncate();
         factory(App\Country::class, 2)->create()->each(function ($country) {
             /** @var  App\Country $country */
             $country->cities()->saveMany(factory(App\City::class, 10)->create(['country_id' => $country->id])->each(function ($city) use($country) {
