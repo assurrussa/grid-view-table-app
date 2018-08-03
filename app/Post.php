@@ -132,6 +132,30 @@ class Post extends Model
      *
      * @return mixed
      */
+    public function scopeByPublishedAt($query, $string)
+    {
+        $date = \Carbon\Carbon::parse($string)->format('Y-m-d');
+        return $query->whereDate('published_at', '=', $date);
+    }
+
+    /**
+     * @param Post   $query
+     * @param string $string
+     *
+     * @return mixed
+     */
+    public function scopeByCreatedAt($query, $string)
+    {
+        $date = \Carbon\Carbon::parse($string)->format('Y-m-d');
+        return $query->whereDate('created_at', '=', $date);
+    }
+
+    /**
+     * @param Post   $query
+     * @param string $string
+     *
+     * @return mixed
+     */
     public function scopeByCountryId($query, $string)
     {
         return $query->whereHas('user', function ($query) use ($string) {

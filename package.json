@@ -20,9 +20,11 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.10",
         "lodash.debounce": "^4.0.8",
+        "moment": "^2.22.2",
         "popper.js": "^1.12",
         "vue": "^2.5.7",
         "vue-multiselect": "^2.1.0",
-        "vue-progressbar": "^0.7.5"
+        "vue-progressbar": "^0.7.5",
+        "vuejs-datepicker": "^1.5.2"
     }
 }
