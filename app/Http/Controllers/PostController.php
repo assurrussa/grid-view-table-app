@@ -33,7 +33,7 @@ class PostController extends Controller
         $title = 'Posts';
         $data = $this->getGrid()->getSimple();
         if (request()->ajax() || request()->wantsJson()) {
-            return app(\Assurrussa\GridView\GridView::NAME)->render(compact('data'));
+            return $data->toHtml();
         }
 
         return view('post.index', compact('title', 'data'));
@@ -49,7 +49,7 @@ class PostController extends Controller
         $title = 'Posts';
         $data = $this->getGrid()->get();
         if (request()->ajax() || request()->wantsJson()) {
-            return app(\Assurrussa\GridView\GridView::NAME)->render(compact('data'));
+            return $data->toHtml();
         }
 
         return view('post.index', compact('title', 'data'));

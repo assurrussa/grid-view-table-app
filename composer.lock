@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/assurrussa/grid-view-table.git",
-                "reference": "ba988f56550a31cc100d3a6f00d3f16f9b065ed4"
+                "reference": "b0da57eddc7c6a22ad073a945223961fefbcec4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/assurrussa/grid-view-table/zipball/ba988f56550a31cc100d3a6f00d3f16f9b065ed4",
-                "reference": "ba988f56550a31cc100d3a6f00d3f16f9b065ed4",
+                "url": "https://api.github.com/repos/assurrussa/grid-view-table/zipball/b0da57eddc7c6a22ad073a945223961fefbcec4f",
+                "reference": "b0da57eddc7c6a22ad073a945223961fefbcec4f",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "table",
                 "vue"
             ],
-            "time": "2018-08-03T07:25:55+00:00"
+            "time": "2018-08-03T10:26:16+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

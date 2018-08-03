@@ -12,7 +12,7 @@
     {{--</div>--}}
     <div class="container-fluid">
         <div class="row justify-content-center">
-            {!! app(\Assurrussa\GridView\GridView::NAME)->render(['data' => $data]) !!}
+            {!! $data !!}
         </div>
     </div>
 @endsection
