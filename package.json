@@ -13,6 +13,7 @@
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
+        "fecha": "^2.3.3",
         "font-awesome": "^4.7.0",
         "form-serialize": "^0.7.2",
         "jquery": "^3.2",

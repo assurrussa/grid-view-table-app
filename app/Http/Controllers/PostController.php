@@ -204,6 +204,9 @@ class PostController extends Controller
                 /** @var \App\Post $data */
                 return $data->user->name . ' (id#' . $data->user->id . ')';
             });
+        $gridView->column('published_at', 'Published At')->setDateActive(true)
+            ->setFilterDate('byPublishedAtRange', '', true, 'Y-m-d H:i')
+            ->setFilterFormat('DD MMM YY');
 
         // column actions
         $gridView->columnActions(function ($data) use ($gridView) {

@@ -10,7 +10,7 @@
     {{--<div id="ami-grid">--}}
     {{--<ami-grid data="[headers: []]"></ami-grid>--}}
     {{--</div>--}}
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             {!! app(\Assurrussa\GridView\GridView::NAME)->render(['data' => $data]) !!}
         </div>

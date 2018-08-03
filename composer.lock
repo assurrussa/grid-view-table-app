@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/assurrussa/grid-view-table.git",
-                "reference": "ddfee5ec21d451465ac725bf5b52eee1bd05ed28"
+                "reference": "ba988f56550a31cc100d3a6f00d3f16f9b065ed4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/assurrussa/grid-view-table/zipball/ddfee5ec21d451465ac725bf5b52eee1bd05ed28",
-                "reference": "ddfee5ec21d451465ac725bf5b52eee1bd05ed28",
+                "url": "https://api.github.com/repos/assurrussa/grid-view-table/zipball/ba988f56550a31cc100d3a6f00d3f16f9b065ed4",
+                "reference": "ba988f56550a31cc100d3a6f00d3f16f9b065ed4",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "table",
                 "vue"
             ],
-            "time": "2018-08-02T14:00:19+00:00"
+            "time": "2018-08-03T07:25:55+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3316,16 +3316,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.2.7",
+            "version": "7.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8e878aff7917ef66e702e03d1359b16eee254e2c"
+                "reference": "0b6b29faf95c03fd7867e866438b78d5692b6f03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e878aff7917ef66e702e03d1359b16eee254e2c",
-                "reference": "8e878aff7917ef66e702e03d1359b16eee254e2c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0b6b29faf95c03fd7867e866438b78d5692b6f03",
+                "reference": "0b6b29faf95c03fd7867e866438b78d5692b6f03",
                 "shasum": ""
             },
             "require": {
@@ -3370,7 +3370,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.2-dev"
+                    "dev-master": "7.3-dev"
                 }
             },
             "autoload": {
@@ -3396,7 +3396,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-07-15T05:20:50+00:00"
+            "time": "2018-08-03T06:02:45+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
