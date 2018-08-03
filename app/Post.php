@@ -118,6 +118,20 @@ class Post extends Model
      *
      * @return mixed
      */
+    public function scopeByPublishedAtRange($query, $string)
+    {
+        $list = explode('_', $string);
+        $from = \Carbon\Carbon::parse($list[0])->format('Y-m-d');
+        $to = \Carbon\Carbon::parse($list[1])->format('Y-m-d');
+        return $query->whereBetween('published_at', [$from, $to]);
+    }
+
+    /**
+     * @param Post   $query
+     * @param string $string
+     *
+     * @return mixed
+     */
     public function scopeByCountryId($query, $string)
     {
         return $query->whereHas('user', function ($query) use ($string) {
