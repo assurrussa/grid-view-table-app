@@ -27,6 +27,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/assurrussa/grid-view-table/tree/master/docs">Documentation</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

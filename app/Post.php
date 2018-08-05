@@ -5,6 +5,39 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Post
+ *
+ * @property integer        $id
+ * @property integer        $user_id
+ * @property string         $type
+ * @property string         $title
+ * @property string         $preview
+ * @property string         $description
+ * @property string         $body
+ * @property \Carbon\Carbon $published_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property \Carbon\Carbon $deleted_at
+ *
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byCityId($string)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byCountryId($string)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byCreatedAt($string)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byId($int)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byPublishedAt($string)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byPublishedAtRange($string)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byTitle($string)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byTitleLike($string)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byType($string)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Post byUserName($string)
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Post onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Query\Builder|\App\Post withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Post withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Post extends Model
 {
 
@@ -45,6 +78,25 @@ class Post extends Model
      */
     protected $dates = [
         'published_at',
+    ];
+
+    /**
+     * access type: integer, real, float, double, string, boolean, object, array, collection, date и datetime
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id'           => 'integer',
+        'user_id'      => 'integer',
+        'type'         => 'string',
+        'title'        => 'string',
+        'preview'      => 'string',
+        'description'  => 'string',
+        'body'         => 'string',
+        'published_at' => 'datetime',
+        'created_at'   => 'datetime',
+        'updated_at'   => 'datetime',
+        'deleted_at'   => 'datetime',
     ];
 
     /**
@@ -96,7 +148,7 @@ class Post extends Model
      */
     public function scopeByTitleLike($query, $string)
     {
-        return $query->where('title','like', $string . '%');
+        return $query->where('title', 'like', $string . '%');
     }
 
     /**

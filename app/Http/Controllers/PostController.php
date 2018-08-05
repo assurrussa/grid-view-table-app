@@ -14,7 +14,7 @@ class PostController extends Controller
     private $post;
 
     /**
-     * UserController constructor.
+     * PostController constructor.
      *
      * @param Post $post
      */
@@ -24,19 +24,40 @@ class PostController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
      * @throws \Assurrussa\GridView\Exception\ColumnsException
      * @throws \Assurrussa\GridView\Exception\QueryException
      */
     public function index()
     {
         $title = 'Posts';
-        $data = $this->getGrid()->getSimple();
+//        $data = $this->_getGridView()->getSimple(); // simple pagination
+//        // or
+//        $data = $this->_getGridView()->get(); // full pagination
+        $data = $this->_getGridView()->getSimple();
         if (request()->ajax() || request()->wantsJson()) {
             return $data->toHtml();
         }
 
         return view('post.index', compact('title', 'data'));
+    }
+
+    /**
+     * @return \Assurrussa\GridView\GridView
+     */
+    private function _getGridView()
+    {
+        /** @var \Assurrussa\GridView\GridView $gridView */
+        $query = $this->post->newQuery();
+        $gridView = app('amiGrid');
+        $gridView->setQuery($query)
+            ->setSearchInput(true);
+
+        // .......
+        // .......
+        // .......
+
+        return $gridView;
     }
 
     /**
@@ -132,20 +153,22 @@ class PostController extends Controller
         $listCountry = \App\Country::selectRaw('id, name as label')->get()->toArray();
         $listCountrySelected = [];
         if ($cityId = (int)\request()->get($nameFilterCountry)) {
-            $city = \App\Country::find($cityId);
+            /** @var \App\Country $model */
+            $model = \App\Country::find($cityId);
             $listCountrySelected = [
-                'label' => $city->name,
-                'id'    => $city->id,
+                'label' => $model->name,
+                'id'    => $model->id,
             ];
         }
         // city ajax selected filter
         $nameFilterCity = 'byCityId';
         $listCitySelected = [];
         if ($cityId = (int)\request()->get($nameFilterCity)) {
-            $city = \App\City::find($cityId);
+            /** @var \App\City $city */
+            $model = \App\City::find($cityId);
             $listCitySelected = [
-                'label' => $city->name,
-                'id'    => $city->id,
+                'label' => $model->name,
+                'id'    => $model->id,
             ];
         }
 
@@ -166,6 +189,7 @@ class PostController extends Controller
 
         // classes for every tr string
         $gridView->column()->setClassForString(function ($data) {
+            /** @var \App\Post $data */
             return $data->id % 2 ? 'text-success' : '';
         });
 
@@ -175,6 +199,7 @@ class PostController extends Controller
                 'ID'         => 'id',
                 0            => 'title',
                 'Author'     => function ($data) {
+                    /** @var \App\Post $data */
                     return $data->user->name;
                 },
                 'Country'    => 'user.country.name',
@@ -212,35 +237,66 @@ class PostController extends Controller
             ->setFilterFormat('DD MMM YY');
 
         // column actions
-        $gridView->columnActions(function ($data) use ($gridView) {
-            /** @var \App\Post $data */
-            $buttons = [];
-            $buttons[] = $gridView->columnAction()->setActionShow('post.show', [$data->id])
+        $gridView->columnActions(function ($data, $columns) {
+            /**
+             * @var \App\Post                           $data
+             * @var \Assurrussa\GridView\Support\Column $columns
+             */
+            $columns->addButton()->setActionShow('post.show', [$data->id])
                 ->setClass('btn btn-info btn-sm')
                 ->setOptions(['target' => '_blank'])
                 ->setHandler(function ($data) {
                     /** @var \App\Post $data */
                     return $data->id % 2;
                 });
-            $buttons[] = $gridView->columnAction()->setActionEdit('post.edit', [$data->id], 'Edit')
+            $columns->addButton()->setActionEdit('post.edit', [$data->id], 'Edit')
                 ->setClass('btn btn-outline-primary btn-sm')
                 ->setOptions(['target' => '_blank'])
                 ->setHandler(function ($data) {
                     /** @var \App\Post $data */
                     return $data->id % 2;
                 });
-            $buttons[] = $gridView->columnAction()->setActionDelete('post.destroy', [$data->id], '')
+            $columns->addButton()->setActionDelete('post.destroy', [$data->id], '')
                 ->setHandler(function ($data) {
                     /** @var \App\Post $data */
                     return $data->id % 2 && !$data->deleted_at;
                 });
-            $buttons[] = $gridView->columnAction()->setActionRestore('post.restore', [$data->id])
+            $columns->addButton()->setActionRestore('post.restore', [$data->id])
                 ->setMethod('PUT')->setHandler(function ($data) {
                     /** @var \App\Post $data */
                     return $data->deleted_at;
                 });
-            return $buttons;
         });
+//        // column actions
+//        $gridView->columnActions(function ($data) use ($gridView) {
+//            /** @var \App\Post $data */
+//            $buttons = [];
+//            $buttons[] = $gridView->columnAction()->setActionShow('post.show', [$data->id])
+//                ->setClass('btn btn-info btn-sm')
+//                ->setOptions(['target' => '_blank'])
+//                ->setHandler(function ($data) {
+//                    /** @var \App\Post $data */
+//                    return $data->id % 2;
+//                });
+//            $buttons[] = $gridView->columnAction()->setActionEdit('post.edit', [$data->id], 'Edit')
+//                ->setClass('btn btn-outline-primary btn-sm')
+//                ->setOptions(['target' => '_blank'])
+//                ->setHandler(function ($data) {
+//                    /** @var \App\Post $data */
+//                    return $data->id % 2;
+//                });
+//            $buttons[] = $gridView->columnAction()->setActionDelete('post.destroy', [$data->id], '')
+//                ->setHandler(function ($data) {
+//                    /** @var \App\Post $data */
+//                    return $data->id % 2 && !$data->deleted_at;
+//                });
+//            $buttons[] = $gridView->columnAction()->setActionRestore('post.restore', [$data->id])
+//                ->setMethod('PUT')->setHandler(function ($data) {
+//                    /** @var \App\Post $data */
+//                    return $data->deleted_at;
+//                });
+//            return $buttons;
+//        });
 
         // create button
         $gridView->button()->setButtonCreate(route('post.create'));
