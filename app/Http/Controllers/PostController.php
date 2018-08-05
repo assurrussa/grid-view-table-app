@@ -31,33 +31,12 @@ class PostController extends Controller
     public function index()
     {
         $title = 'Posts';
-//        $data = $this->_getGridView()->getSimple(); // simple pagination
-//        // or
-//        $data = $this->_getGridView()->get(); // full pagination
-        $data = $this->_getGridView()->getSimple();
+        $data = $this->getGrid()->getSimple();
         if (request()->ajax() || request()->wantsJson()) {
             return $data->toHtml();
         }
 
         return view('post.index', compact('title', 'data'));
-    }
-
-    /**
-     * @return \Assurrussa\GridView\GridView
-     */
-    private function _getGridView()
-    {
-        /** @var \Assurrussa\GridView\GridView $gridView */
-        $query = $this->post->newQuery();
-        $gridView = app('amiGrid');
-        $gridView->setQuery($query)
-            ->setSearchInput(true);
-
-        // .......
-        // .......
-        // .......
-
-        return $gridView;
     }
 
     /**
