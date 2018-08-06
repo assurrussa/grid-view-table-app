@@ -72,6 +72,8 @@
 <div class="py-5"></div>
 
 <script src="{{ asset('js/app.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
 <script src="{{ asset('vendor/grid-view/js/amigrid.js') }}"></script>
 @stack('scripts')
 </body>
