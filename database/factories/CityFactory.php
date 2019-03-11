@@ -16,6 +16,6 @@ use Faker\Generator as Faker;
 $factory->define(App\City::class, function (Faker $faker) {
     return [
         'name' => $faker->city,
-        'slug' => str_slug($faker->city),
+        'slug' => \Illuminate\Support\Str::slug($faker->city),
     ];
 });

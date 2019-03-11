@@ -13,19 +13,13 @@
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
-        "fecha": "^2.3.3",
-        "font-awesome": "^4.7.0",
-        "form-serialize": "^0.7.2",
-        "historyjs": "^1.8.0-b2",
         "jquery": "^3.2",
-        "laravel-mix": "^2.0",
-        "lodash": "^4.17.10",
-        "lodash.debounce": "^4.0.8",
-        "moment": "^2.22.2",
+        "laravel-mix": "^4.0.7",
+        "lodash": "^4.17.5",
         "popper.js": "^1.12",
-        "vue": "^2.5.7",
-        "vue-multiselect": "^2.1.0",
-        "vue-progressbar": "^0.7.5",
-        "vuejs-datepicker": "^1.5.2"
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.15.2",
+        "sass-loader": "^7.1.0",
+        "vue": "^2.5.17"
     }
 }
