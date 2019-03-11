@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/assurrussa/grid-view-table.git",
-                "reference": "96fede17737703cc57833b189bd4d81a1a325b10"
+                "reference": "c91ed582f030b83cece0449a7ac8c9509b4071d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/assurrussa/grid-view-table/zipball/96fede17737703cc57833b189bd4d81a1a325b10",
-                "reference": "96fede17737703cc57833b189bd4d81a1a325b10",
+                "url": "https://api.github.com/repos/assurrussa/grid-view-table/zipball/c91ed582f030b83cece0449a7ac8c9509b4071d6",
+                "reference": "c91ed582f030b83cece0449a7ac8c9509b4071d6",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "table",
                 "vue"
             ],
-            "time": "2019-03-11T06:21:45+00:00"
+            "time": "2019-03-11T07:07:18+00:00"
         },
         {
             "name": "beyondcode/laravel-dump-server",
